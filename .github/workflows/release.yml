@@ -19,8 +19,9 @@ concurrency:
 
 jobs:
   release:
-    # Intentionally tracked at @main (not SHA-pinned) so org-wide CI improvements, security fixes, and build optimizations propagate without PR churn across all craftapp repos.
-    uses: storytold/craft-common-actions/.github/workflows/release.yml@main
+    # Keep this reusable workflow pinned to an immutable commit. Dependabot updates
+    # the SHA so changes to the signing workflow are reviewed like other code changes.
+    uses: storytold/craft-common-actions/.github/workflows/release.yml@62e4e147b31c7362008a5a53998adc5e38b89b99 # reviewed release workflow
     with:
       app-name: pdfcraft
       app-title: PdfCraft
